@@ -11,3 +11,19 @@ function askQuestion(question) {
         rl.question(question, (answer) => resolve(answer));
     });
 }
+
+async function main() {
+    try {
+        
+        const name = await askQuestion("wpisz imie: ");
+        const surname = await askQuestion("wpisz nazwisko: ");
+        const age = await askQuestion("wpisz wiek: ");
+        
+        
+        const userData = {
+            imię: name,
+            nazwisko: surname,
+            wiek: age
+        };
+    }
+}
