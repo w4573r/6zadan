@@ -29,5 +29,8 @@ async function main() {
         await fs.writeFile("data.json", JSON.stringify(userData, null, 2));
         console.log("Dane zapisano do pliku data.json");
 
+        const data = await fs.readFile("data.json", "utf8");
+        console.log(data);
+
     }
 }
