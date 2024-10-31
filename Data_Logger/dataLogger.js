@@ -31,6 +31,11 @@ async function main() {
 
         const data = await fs.readFile("data.json", "utf8");
         console.log(data);
-
+    }catch (error) {
+        console.error("Wystapil blond:", error);
+    } finally {
+        rl.close();
     }
 }
+
+main();
