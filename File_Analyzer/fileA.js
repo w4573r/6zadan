@@ -30,3 +30,10 @@ function analyzeDirectory(directoryPath) {
     console.log('analiza katalogu zakończona.');
 });
 }
+
+events.on('StartAnalizy', () => console.log("Start analizy"));
+events.on('AnalizaPliku', (file) => console.log(`Analiza pliku - ${file}`));
+events.on('KoniecAnalizy', () => console.log("Koniec analizy"));
+
+const directoryPath = './plik';
+analyzeDirectory(directoryPath);
