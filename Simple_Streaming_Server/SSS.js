@@ -18,5 +18,9 @@ const server = http.createServer((req, res) => {
             res.end('plik nie istnieje');
             return;
         }
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        const fileStream = fs.createReadStream(fileName);
+        fileStream.pipe(res);
+       
 });
 });
