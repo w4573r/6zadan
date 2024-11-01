@@ -16,6 +16,17 @@ function analyzeDirectory(directoryPath) {
             const itemPath = path.join(directoryPath, item);
             fs.stat(itemPath, (err, stats) => {
                 if (err) return console.error('Nie można sprawdzić pliku');
+
+                if (stats.isFile()) {
+                    events.emit('AnalizaPliku', item);
+                    console.log(`plik: ${item}, rozmiar: ${stats.size}, data modyfikacji: ${stats.mtime}`);
+                } else {
+                    console.log(`Folder: ${item}`);
+                }
 });
 });
-    }
+    
+    events.emit('AnalizaZakonczona');
+    console.log('analiza katalogu zakończona.');
+});
+}
