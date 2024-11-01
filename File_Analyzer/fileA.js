@@ -12,5 +12,10 @@ function analyzeDirectory(directoryPath) {
     fs.readdir(directoryPath, (err, items) => {
         if (err) return console.error('Nie można odczytać katalogu');
 
+        items.forEach(item => {
+            const itemPath = path.join(directoryPath, item);
+            fs.stat(itemPath, (err, stats) => {
+                if (err) return console.error('Nie można sprawdzić pliku');
 });
-}
+});
+    }
