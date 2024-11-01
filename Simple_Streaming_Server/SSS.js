@@ -11,4 +11,12 @@ const server = http.createServer((req, res) => {
         res.end('błąd przy wpisywaniu');
         return;
     }
-}
+
+    fs.stat(fileName, (err, stats) => {
+        if (err || !stats.isFile()) {
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.end('plik nie istnieje');
+            return;
+        }
+});
+});
