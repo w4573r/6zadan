@@ -1,8 +1,0 @@
-Zmieniono plik: test.txt
-Zmieniono plik: test.txt
-Zmieniono plik: test.txt
-Zmieniono plik: test.txt
-Usunięto plik: test.txt
-Dodano plik: przyklad.txt
-Zmieniono plik: przyklad.txt
-Zmieniono plik: przyklad.txt
