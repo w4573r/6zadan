@@ -24,6 +24,12 @@ fs.watch(folderPath, (eventType, filename) => {
                 console.log(message);
                 logToFile(message);
             });
+    } else if (eventType === 'change') {
+        message = `Zmieniono plik: ${filename}`;
+        console.log(message);
+        logToFile(message);
     }
 }
 });
+
+console.log(`Rozpoczęto monitorowanie katalogu: ${folderPath}`);
