@@ -21,6 +21,13 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, { 'Content-Type': 'text/plain' });
         const fileStream = fs.createReadStream(fileName);
         fileStream.pipe(res);
-       
+
+        fileStream.on('error', () => {
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('błąd z strumieniem');
+        });
 });
+});
+server.listen(3000, () => {
+    console.log('Serwer działa na http://localhost:3000');
 });
