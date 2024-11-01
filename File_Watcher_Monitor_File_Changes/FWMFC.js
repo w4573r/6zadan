@@ -12,5 +12,18 @@ function logToFile(message) {
 fs.watch(folderPath, (eventType, filename) => {
     if (filename) {
         let message;
+
+        if (eventType === 'rename') {
+
+            fs.access(`${folderPath}/${filename}`, fs.constants.F_OK, (err) => {
+                if (err) {
+                    message = `Usunięto plik: ${filename}`;
+                } else {
+                    message = `Dodano plik: ${filename}`;
+                }
+                console.log(message);
+                logToFile(message);
+            });
     }
+}
 });
