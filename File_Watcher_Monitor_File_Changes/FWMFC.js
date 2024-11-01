@@ -8,3 +8,9 @@ function logToFile(message) {
         if (err) throw err;
     });
 }
+
+fs.watch(folderPath, (eventType, filename) => {
+    if (filename) {
+        let message;
+    }
+});
